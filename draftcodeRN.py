@@ -91,4 +91,4 @@ ax.set_xlim(x_array[0], x_array[-1])
 ax.set_ylim(0, 1)
 
 ani = animation.FuncAnimation(fig, run, psi_list, interval=10)
-ani.save("particle_in_a_well.mp4", fps=120, dpi=300)
+ani.save("particle_in_a_well.mp4", fps=120, dpi=300) #unknown file extension error
