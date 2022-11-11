@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-#from findiff import FinDiff
+from findiff import FinDiff
 from scipy.sparse.linalg import inv
 from scipy.sparse import eye, diags
 import matplotlib.animation as animation
@@ -32,6 +32,7 @@ def wavefunction_xt(x,t):
 
 def Vsine(x):
     return np.sin(x)
+     
 
 def Vexpo(x):
     return np.exp(k*x)
@@ -39,17 +40,16 @@ def Vexpo(x):
 
 userpoten = str(input("Please choose a function to represent V(x): sine or exponential. "))
 
-while userpoten != 'sine' and userpoten != 'exponential':
+while userpoten != 'sine' and userpoten != 'exponential': 
     print("Please choose a function to represent V(x): sine or exponential. ")
-    userpoten = str(input("Choose a function to represent V(x): sine or exponential. "))
-
+    userpoten = str(input("Please choose a function to represent V(x): sine or exponential. "))
 else:
     if userpoten == 'sine':
-        v_x = Vsine()
-        v_x_matrix = diags(Vsine)
+            v_x = Vsine(x_array)
+            v_x_matrix = diags(v_x)
     elif userpoten == 'exponential':
-        v_x = Vexpo()
-        v_x_matrix = diags(Vexpo)
+            v_x = Vexpo(x_array)
+            v_x_matrix = diags(v_x)
 
     
 
