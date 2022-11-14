@@ -40,7 +40,7 @@ dt = t_array[1] - t_array[0]
 dx = x_array[1] - x_array[0]
 
 def wavefunction_xt(x,t):
-    """Returns a wavefunction dependant on x and t"""
+    """Returns a wavefunction dependent on x and t"""
     timefac = np.exp((1j*E*t)/hbar) #Time Factor (t-dependance)
     return (np.cos(k*x) + 1j*np.sin(k*x))*timefac
 
@@ -54,7 +54,7 @@ def Vexpo(x):
     return np.exp(k*x)
 
 def run(psi):
-    """ """
+    """Returns   """
     line.set_data(x_array, np.abs(psi)**2)
     return line,
 
