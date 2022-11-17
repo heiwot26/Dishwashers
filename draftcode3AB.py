@@ -14,7 +14,7 @@ Collaborators; Rubaba Noyireeta, Nergez Brifkani, Mohamed Darwish, Alexander Bil
 """
 import numpy as np
 import matplotlib.pyplot as plt
-from findiff import FinDiff
+#from findiff import FinDiff
 from scipy.sparse.linalg import inv
 from scipy.sparse import eye, diags
 import matplotlib.animation as animation
@@ -57,10 +57,7 @@ def run(psi):
 
 X = x_array
 
-userpoten = str(input("Please choose a function to represent V(x), using the variable X:"))
-
-
-#makes sure the input is a function in terms of X, evaluates it and makes it equal to v_x
+userpoten = str(input("Please choose a function to represent V(X), using the variable X, exp for natural exponential, and asterisks (*) to specify multiplication:"))
 
 def isevaluable(userpoten):
     try:
@@ -69,6 +66,16 @@ def isevaluable(userpoten):
     except:
         return False
     
+if 'sin' or 'cos' or 'tan' or 'pi' or '^' or 'exp' in userpoten:
+    userpoten = userpoten.replace('sin','np.sin')
+    userpoten = userpoten.replace('cos','np.cos')
+    userpoten = userpoten.replace('tan','np.tan')
+    userpoten = userpoten.replace('pi','(np.pi)')
+    userpoten = userpoten.replace('^','**')
+    userpoten = userpoten.replace('exp','np.exp')
+    
+    
+#makes sure the input is a function in terms of X, evaluates it and makes it equal to v_x
     
 while isevaluable(userpoten) == False: 
     break
@@ -82,8 +89,7 @@ while isinstance(userpoten, np.ndarray) == False:
     userpoten = str(input("Please choose a function to represent V(x), using the variable X:"))
 else:
     if isinstance(userpoten, np.ndarray) == True:
-            v_x = userpoten
-            v_x_matrix = diags(v_x)
+            v_x_matrix = diags(userpoten)
 #Calculates the Hamiltonian matrix    
 
 H = -0.5 * FinDiff(0, dx, 2).matrix(x_array.shape) + v_x_matrix
