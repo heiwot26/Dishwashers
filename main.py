@@ -137,7 +137,7 @@ def finite_sqwell(userpoten, N):
 
 def step_function(userpoten, N):
 	'''
-	Returns the square of the wave function, run plots the wave function.
+	If they type in stepfunc, it will promt them with the stepfunc to input the height/parameters to adjust for N
 	'''
     v_x = np.zeros(Nx)
     v_x[250:Nx] = N
