@@ -44,7 +44,7 @@ def run(psi):
     return line,
 
 
-def isevaluable(userpoten):
+def is_evaluable(userpoten):
     try:
         eval(userpoten)
         return True
@@ -53,22 +53,22 @@ def isevaluable(userpoten):
     
     
     
-def requestinput(userpoten):
+def request_input(userpoten):
     print("Your input " + userpoten + " is not acceptable. Please choose a function in terms of only X")
     userpoten = str(input("Please choose a function to represent V(x), using the variable X:"))
     return userpoten
 
 
 
-def userinputX(userpoten):
+def user_input_X(userpoten):
     
-    while isevaluable(userpoten) == False: 
-            userpoten = requestinput(userpoten)
+    while is_evaluable(userpoten) == False: 
+            userpoten = request_input(userpoten)
     else:
-        if isevaluable(userpoten) == True:
+        if is_evaluable(userpoten) == True:
             userpoten = eval(userpoten)
             while isinstance(userpoten, np.ndarray) == False and isinstance(userpoten, int) == False:
-                userpoten = requestinput(userpoten)
+                userpoten = request_input(userpoten)
             else:
                 if isinstance(userpoten, np.ndarray) == True:
                     v_x = userpoten
@@ -87,21 +87,21 @@ def v_x_matrix_creator(v_x):
 
 
     
-def infsqwell(userpoten, L):
+def infinite_sqwell(userpoten, L):
     v_x = np.zeros(Nx)
     v_x[400:Nx] = 10000
     v_x[0:100] = 10000
     v_x
     return v_x
 
-def finsqwell(userpoten, N):
+def finite_sqwell(userpoten, N):
     v_x = np.zeros(Nx)
     v_x[400:Nx] = N
     v_x[0:100] = N
     v_x
     return v_x
 
-def stepfunc(userpoten, N):
+def step_function(userpoten, N):
     v_x = np.zeros(Nx)
     v_x[250:Nx] = N
     v_x
@@ -150,21 +150,21 @@ if 'sin' or 'cos' or 'tan' or 'pi' or '^' or 'exp' or 'arcsin' or 'arccos' or 'a
 
 
 if userpoten == "infsqwell()":
-    v_x = infsqwell(userpoten, L)
+    v_x = infinite_sqwell(userpoten, L)
     v_x_matrix = v_x_matrix_creator(v_x)
 elif userpoten == "finsqwell()":
     N = str(input("Please input the height of the well N:"))
     N = eval(N)
-    v_x = finsqwell(userpoten, N)
+    v_x = finite_sqwell(userpoten, N)
     v_x_matrix = v_x_matrix_creator(v_x)   
 elif userpoten == "stepfunc()":
     N = str(input("Please input the height of the step N:"))
     N = eval(N)
-    v_x = stepfunc(userpoten, N)
+    v_x = step_function(userpoten, N)
     v_x_matrix = v_x_matrix_creator(v_x)   
 else:
-    v_x = userinputX(userpoten)
-    v_x_matrix = v_x_matrix_creator(userinputX(userpoten))
+    v_x = user_input_X(userpoten)
+    v_x_matrix = v_x_matrix_creator(user_input_X(userpoten))
     
 
 
