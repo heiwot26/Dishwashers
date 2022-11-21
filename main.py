@@ -3,7 +3,8 @@
 """
 Created on Mon Nov 21 18:54:16 2022
 
-@author: Students
+Collaborators; Nergez Brifkani, Heiwot Seyoum, Sambhav Kumar, Rubaba Noyireeta, Alexander Bilsland, Mohamed Darwish
+
 """
 
 import numpy as np
@@ -12,7 +13,9 @@ from findiff import FinDiff
 from scipy.sparse.linalg import inv
 from scipy.sparse import eye, diags
 import matplotlib.animation as animation
+
 #Defines input parameters
+
 Nx = 500 
 xmin = -5
 xmax = 5
@@ -24,16 +27,17 @@ hbar = 1
 m = 1
 L = 16
 E = (hbar**2)*(np.pi**2)/(2*m*L)
+
 #Calculates grid, potential, and initial wave function
+
 x_array = np.linspace(xmin, xmax, Nx)
 t_array = np.linspace(tmin, tmax, Nt)
 psi = np.exp(-(x_array)**2)
+
 #Calculates finite difference elements
+
 dt = t_array[1] - t_array[0]
 dx = x_array[1] - x_array[0]
-
-
-
 
 
 #DEFINING NECASSARY FUNCTIONS
@@ -88,6 +92,19 @@ def v_x_matrix_creator(v_x):
 
     
 def infinite_sqwell(userpoten, L):
+    
+    """
+    Defines and returns an infinite square well when user wants an infinite square well.
+
+    	Parameters:
+
+            userpoten (str): Input function from the user
+
+    	Returns:
+		
+    		V(x) (arr) : array representing the potential at every point of x/corresponding to x_array
+    """
+    
     v_x = np.zeros(Nx)
     v_x[400:Nx] = 10000
     v_x[0:100] = 10000
@@ -95,6 +112,20 @@ def infinite_sqwell(userpoten, L):
     return v_x
 
 def finite_sqwell(userpoten, N):
+    
+    """
+    Defines and returns an finite square well when user wants an finite square well.
+
+    	Parameters:
+		
+            N(float): height of the finite square well
+            userpoten (str): Input function from the user
+
+    	Returns:
+		
+            V(x) (arr) : array representing the potential at every point of x/corresponding to x_array
+    
+    """
     v_x = np.zeros(Nx)
     v_x[400:Nx] = N
     v_x[0:100] = N
