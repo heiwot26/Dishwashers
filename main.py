@@ -41,11 +41,11 @@ dx = x_array[1] - x_array[0]
 
 
 #DEFINING NECASSARY FUNCTIONS
-'''
-Returns the square of the wave function, run plots the wave function.
-'''
-def run(psi):
-    """Returns   """
+
+def run(psi): 
+	'''
+	Returns the square of the wave function, run plots the wave function.
+	'''
     line.set_data(x_array, np.abs(psi)**2)
     return line,
 
@@ -134,16 +134,15 @@ def finite_sqwell(userpoten, N):
     v_x
     return v_x
 
-''' 
-if they type in stepfunc, it will promt them with the stepfunc to input the height/parameters
-'''
 
 def step_function(userpoten, N):
+	'''
+	Returns the square of the wave function, run plots the wave function.
+	'''
     v_x = np.zeros(Nx)
     v_x[250:Nx] = N
     v_x
     return v_x
-
 
 #define inputs
 
