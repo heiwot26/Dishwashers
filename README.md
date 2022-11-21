@@ -8,10 +8,10 @@
 +Git hub
 +Spyder 
 
-	##**Description: **
-	+ The Dishwashers collective have developed a software package which provides a command -line tool which will enable users to solve the Time-Dependant Schrödinger Equation, for an arbitrary user-specified potential. 
-As well as solving the TDSE the software will also produce a __ 
+##**Description: **
++ The Dishwashers collective have developed a software package which provides a command -line tool which will enable users to solve the Time-Dependant Schrödinger Equation, for an arbitrary user-specified potential. 
+As well as solving the TDSE the software will also produce an animation._ 
 	+
 	
-	## **Setup/Installation Requirements**
+## **Setup/Installation Requirements**
 
