@@ -16,5 +16,5 @@
 ## **Setup/Installation Requirements**
 
 + user has to go into command prompt and install the packaing using the command:
-    + from example_package import dishwashers.py
+    + pip install -i https://test.pypi.org/simple/ example-package-Dishwasher==0.0.1
 
