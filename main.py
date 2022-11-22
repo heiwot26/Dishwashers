@@ -51,6 +51,19 @@ def run(psi):
 
 
 def is_evaluable(userpoten):
+    '''
+
+
+    Defines and return is eval() can be exectuted on the user input userpoten().
+
+        Paramters:
+
+            userpoten (string) : this is the users in put for the potenial
+
+        Returns:
+            True (boolean) : this will be returned if eval(userpoten) can be executed 
+            False (boolean) : will be returned if eval(userpoten) can not be executed 
+    '''
     try:
         eval(userpoten)
         return True
@@ -60,6 +73,23 @@ def is_evaluable(userpoten):
     
     
 def request_input(userpoten):
+
+    '''
+
+    Defines and returns an error message to user if input is not valid
+
+        Paramters: 
+            
+            userpoten (string): this is the the users chocen potential they have input as a string
+
+        Returns:
+
+                an error message (string) : "Your input (userpoten) is not acceptable. Please choose a fucntion in terms of only X"
+
+
+
+
+    '''
     print("Your input " + userpoten + " is not acceptable. Please choose a function in terms of only X")
     userpoten = str(input("Please choose a function to represent V(x), using the variable X:"))
     return userpoten
@@ -67,7 +97,9 @@ def request_input(userpoten):
 
 
 def user_input_X(userpoten):
-    
+    '''This is a big function that triggers if the fucntion is not any of the keywords for the other specifically defined non continuous fucntions like infinate square well, finite square well, or a step fucntion.
+It will check what the input is and makes sure it is one of the valid inputs and processes or rejects it .
+    '''
     while is_evaluable(userpoten) == False: 
             userpoten = request_input(userpoten)
     else:
@@ -88,6 +120,20 @@ def user_input_X(userpoten):
 
 
 def v_x_matrix_creator(v_x):
+    '''
+
+    Defines a matrix with v_x as diagonal elements
+       
+       parameters:
+       
+            v_x (array): an array which is made form the input 
+       
+       returns:
+
+            v_x (matrix): output which is a matric with v_x as the diagonal elements
+
+
+    '''
     v_x_matrix = diags(v_x)
     return v_x_matrix
 
